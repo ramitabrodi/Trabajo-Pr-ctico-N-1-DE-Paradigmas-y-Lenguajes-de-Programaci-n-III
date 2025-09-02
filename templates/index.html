@@ -4,12 +4,12 @@
 
 {% block content %}
 <!-- Hero Section -->
-<section class="bg-primary text-white py-5">
-    <div class="container">
-        <div class="row align-items-center">
-            <div class="col-lg-6">
-                <h1 class="display-4 fw-bold mb-3">Lubricentro R/18</h1>
-                <p class="lead mb-4">Especialistas en lubricación automotriz e industrial con más de 5 años de experiencia. Ofrecemos productos de la más alta calidad para mantener tu vehículo y maquinaria en perfecto estado.</p>
+<section class="text-white py-5 position-relative" style="background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ url_for('static', filename='images/lubricentro-fachada.jpg') }}'); background-size: cover; background-position: center; min-height: 500px;">
+    <div class="container h-100">
+        <div class="row align-items-center h-100">
+            <div class="col-lg-8">
+                <h1 class="display-4 fw-bold mb-3 text-shadow">Lubricentro R/18</h1>
+                <p class="lead mb-4 text-shadow">Especialistas en lubricación automotriz e industrial con más de 5 años de experiencia. Ofrecemos productos de la más alta calidad para mantener tu vehículo y maquinaria en perfecto estado.</p>
                 <div class="d-grid gap-2 d-md-flex">
                     <a href="{{ url_for('listado_box') }}" class="btn btn-light btn-lg me-md-2">
                         <i class="fas fa-eye me-2"></i>Ver Productos
@@ -17,14 +17,6 @@
                     <a href="{{ url_for('comprar') }}" class="btn btn-outline-light btn-lg">
                         <i class="fas fa-shopping-cart me-2"></i>Comprar Ahora
                     </a>
-                </div>
-            </div>
-            <div class="col-lg-6">
-                <div class="h-100 d-flex align-items-center">
-                    <img src="{{ url_for('static', filename='images/lubricentro-fachada.jpg') }}" 
-                         alt="Fachada del Lubricentro R/18" 
-                         class="img-fluid rounded shadow w-100" 
-                         style="min-height: 400px; max-height: 500px; object-fit: cover;">
                 </div>
             </div>
         </div>

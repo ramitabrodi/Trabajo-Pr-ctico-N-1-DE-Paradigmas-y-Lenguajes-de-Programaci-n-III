@@ -235,3 +235,8 @@ footer {
 .skip-link:focus {
     top: 6px;
 }
+
+/* Text shadow para mejorar legibilidad sobre imágenes de fondo */
+.text-shadow {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+}
