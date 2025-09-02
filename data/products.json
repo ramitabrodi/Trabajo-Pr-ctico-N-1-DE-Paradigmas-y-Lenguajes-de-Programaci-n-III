@@ -9,7 +9,7 @@
         "especificaciones": "API SN/CF, ACEA A3/B4",
         "presentacion": "4 litros",
         "stock": 25,
-        "imagen": "/static/images/aceite-motor.svg"
+        "imagen": "/static/images/aceite-motor-15w40.png"
     },
     {
         "id": 2,
@@ -21,7 +21,7 @@
         "especificaciones": "DEXRON VI, MERCON LV",
         "presentacion": "1 litro",
         "stock": 15,
-        "imagen": "/static/images/aceite-transmision.svg"
+        "imagen": "/static/images/aceite-transmision-atf.png"
     },
     {
         "id": 3,
@@ -33,7 +33,7 @@
         "especificaciones": "NLGI 2",
         "presentacion": "500g",
         "stock": 40,
-        "imagen": "/static/images/grasa.svg"
+        "imagen": "/static/images/grasa-multiuso.png"
     },
     {
         "id": 4,
