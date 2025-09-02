@@ -33,14 +33,12 @@
                                 <label for="telefono" class="form-label">Teléfono *</label>
                                 <input type="tel" class="form-control" id="telefono" name="telefono" 
                                        value="{{ request.form.get('telefono', '') }}" 
-                                       pattern="[0-9\s\-\+\(\)]{8,15}" 
-                                       title="Solo se permiten números, espacios, guiones y paréntesis"
-                                       maxlength="15"
-                                       oninput="this.value = this.value.replace(/[^0-9\s\-\+\(\)]/g, '')" 
+                                       placeholder="Ej: 011-1234-5678"
                                        required>
                                 <div class="invalid-feedback">
                                     Por favor ingrese solo números (8-15 dígitos).
                                 </div>
+                                <small class="text-muted">Solo números, espacios, guiones y paréntesis</small>
                             </div>
                             
                             <div class="col-12">

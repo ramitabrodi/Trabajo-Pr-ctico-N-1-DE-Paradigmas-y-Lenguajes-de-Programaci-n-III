@@ -67,11 +67,35 @@ function initializeFormValidation() {
         const inputs = form.querySelectorAll('input, select, textarea');
         inputs.forEach(function(input) {
             input.addEventListener('blur', function() {
+                validateField(input);
                 if (form.classList.contains('was-validated')) {
-                    input.classList.toggle('is-valid', input.checkValidity());
-                    input.classList.toggle('is-invalid', !input.checkValidity());
+                    input.classList.toggle('is-valid', input.checkValidity() && validateField(input));
+                    input.classList.toggle('is-invalid', !(input.checkValidity() && validateField(input)));
                 }
             });
+            
+            // Special handling for phone field - validate on input
+            if (input.name === 'telefono') {
+                input.addEventListener('input', function() {
+                    const isValid = validateField(this);
+                    
+                    // Always show validation feedback for phone once user starts typing
+                    if (this.value.length > 0) {
+                        this.classList.toggle('is-valid', isValid);
+                        this.classList.toggle('is-invalid', !isValid);
+                        
+                        // Show specific message for invalid characters
+                        if (!isValid && this.value.length > 0) {
+                            const hasLetters = /[a-zA-Z]/.test(this.value);
+                            if (hasLetters) {
+                                this.setCustomValidity('No se permiten letras en el teléfono');
+                            }
+                        }
+                    } else {
+                        this.classList.remove('is-valid', 'is-invalid');
+                    }
+                });
+            }
         });
     });
 }
