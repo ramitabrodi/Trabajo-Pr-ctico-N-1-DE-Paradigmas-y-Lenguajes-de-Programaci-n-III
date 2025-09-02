@@ -45,7 +45,7 @@
         "especificaciones": "ISO VG 68, DIN 51524 Part 2",
         "presentacion": "20 litros",
         "stock": 8,
-        "imagen": "/static/images/aceite-hidraulico.svg"
+        "imagen": "/static/images/aceite-hidraulico-iso68.png"
     },
     {
         "id": 5,
@@ -57,7 +57,7 @@
         "especificaciones": "ASTM D3306",
         "presentacion": "3.78 litros",
         "stock": 20,
-        "imagen": "/static/images/refrigerante.svg"
+        "imagen": "/static/images/refrigerante-prestone.png"
     },
     {
         "id": 6,
@@ -69,7 +69,7 @@
         "especificaciones": "JASO FD, ISO EGD",
         "presentacion": "1 litro",
         "stock": 30,
-        "imagen": "/static/images/aceite-2t.svg"
+        "imagen": "/static/images/aceite-2tiempos-valvoline.png"
     },
     {
         "id": 7,
@@ -81,7 +81,7 @@
         "especificaciones": "API GL-5, SAE 90",
         "presentacion": "1 litro",
         "stock": 12,
-        "imagen": "/static/images/aceite-diferencial.svg"
+        "imagen": "/static/images/aceite-diferencial-lucas.png"
     },
     {
         "id": 8,
