@@ -1,6 +1,7 @@
 import os
 import json
 import logging
+import re
 from flask import Flask, render_template, request, redirect, url_for, flash
 
 # Configure logging
@@ -65,10 +66,26 @@ def comprar():
             errors.append('El nombre es requerido')
         if not direccion:
             errors.append('La dirección es requerida')
+        
+        # Validate phone number
         if not telefono:
             errors.append('El teléfono es requerido')
+        else:
+            # Check if phone contains only allowed characters
+            phone_pattern = re.compile(r'^[0-9\s\-\+\(\)]{8,15}$')
+            numbers_only = re.sub(r'[^\d]', '', telefono)
+            
+            if not phone_pattern.match(telefono) or len(numbers_only) < 8 or len(numbers_only) > 15:
+                errors.append('El teléfono debe contener solo números (8-15 dígitos)')
+        
+        # Validate email
         if not email:
             errors.append('El email es requerido')
+        else:
+            email_pattern = re.compile(r'^[^\s@]+@[^\s@]+\.[^\s@]+$')
+            if not email_pattern.match(email):
+                errors.append('Ingrese un email válido')
+        
         if not medio_pago:
             errors.append('El medio de pago es requerido')
         if not productos_seleccionados:

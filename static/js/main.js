@@ -117,9 +117,12 @@ function validateCustomRequirements(form) {
     // Validate phone number
     const phone = form.querySelector('input[name="telefono"]');
     if (phone && phone.value) {
-        const phonePattern = /^[\d\s\-\+\(\)]{8,}$/;
-        if (!phonePattern.test(phone.value)) {
-            phone.setCustomValidity('Por favor ingrese un número de teléfono válido');
+        // Remove all non-numeric characters to count actual digits
+        const numbersOnly = phone.value.replace(/[^\d]/g, '');
+        const phonePattern = /^[0-9\s\-\+\(\)]{8,15}$/;
+        
+        if (!phonePattern.test(phone.value) || numbersOnly.length < 8 || numbersOnly.length > 15) {
+            phone.setCustomValidity('Ingrese un teléfono válido (8-15 números)');
             phone.classList.add('is-invalid');
             isValid = false;
         } else {
@@ -339,8 +342,10 @@ function validateField(field) {
             message = 'Por favor ingrese un email válido';
             break;
         case 'tel':
-            isValid = /^[\d\s\-\+\(\)]{8,}$/.test(value);
-            message = 'Por favor ingrese un número de teléfono válido';
+            const numbersOnly = value.replace(/[^\d]/g, '');
+            const phonePattern = /^[0-9\s\-\+\(\)]{8,15}$/;
+            isValid = phonePattern.test(value) && numbersOnly.length >= 8 && numbersOnly.length <= 15;
+            message = 'Ingrese un teléfono válido (8-15 números)';
             break;
         case 'text':
             if (field.hasAttribute('required')) {
